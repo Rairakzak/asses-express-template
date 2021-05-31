@@ -17,8 +17,8 @@ module.exports = {
         {
           title: "test seeders1",
           description: "using seeders form test seeders 1",
-          backgroundColor: "#ffff",
-          color: "#0000",
+          backgroundColor: "#ffffff",
+          color: "#000000",
           createdAt: new Date(),
           updatedAt: new Date(),
           userId: user1.id,
@@ -26,8 +26,8 @@ module.exports = {
         {
           title: "test seeders2",
           description: "using seeders form test seeders 2",
-          backgroundColor: "#ffff",
-          color: "#0000",
+          backgroundColor: "#ffffff",
+          color: "#000000",
           createdAt: new Date(),
           updatedAt: new Date(),
           userId: user2.id,
