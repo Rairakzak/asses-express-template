@@ -33,5 +33,13 @@
   "devDependencies": {
     "axios": "^0.19.2",
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rairakzak/asses-express-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rairakzak/asses-express-template/issues"
+  },
+  "homepage": "https://github.com/Rairakzak/asses-express-template#readme"
 }
