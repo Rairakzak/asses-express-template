@@ -1,4 +1,3 @@
-
 const { Router } = require("express");
 const auth = require("../auth/middleware");
 const Space = require("../models").space;
@@ -45,7 +44,7 @@ router.post("/:id/stories", auth, async (req, res) => {
     name,
     imageUrl,
     content,
-    spaceId: space.id
+    spaceId: space.id,
   });
 
   return res.status(201).send({ message: "Story created", story });
@@ -58,7 +57,7 @@ router.get("/", async (req, res) => {
     limit,
     offset,
     include: [Story],
-    order: [[Story, "createdAt", "DESC"]]
+    order: [[Story, "createdAt", "DESC"]],
   });
   res.status(200).send({ message: "ok", spaces });
 });
@@ -73,7 +72,7 @@ router.get("/:id", async (req, res) => {
 
   const space = await Space.findByPk(id, {
     include: [Story],
-    order: [[Story, "createdAt", "DESC"]]
+    order: [[Story, "createdAt", "DESC"]],
   });
 
   if (space === null) {
@@ -81,6 +80,16 @@ router.get("/:id", async (req, res) => {
   }
 
   res.status(200).send({ message: "ok", space });
+});
+router.delete("/:id/stories/:storiesId", async (req, res, next) => {
+  try {
+    const deleteStory = await Story.findByPk(req.params.storiesId);
+    console.log(deleteStory);
+    const deleted = await deleteStory.destroy();
+    res.send(deleteStory);
+  } catch (e) {
+    next(e);
+  }
 });
 
 module.exports = router;
